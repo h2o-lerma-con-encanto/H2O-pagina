@@ -1,0 +1,35 @@
+{
+  "name": "pagina_web-h2o_lerma_con_encanto",
+  "version": "1.0.0",
+  "description": "Configuración para la página web, stack MERN",
+  "homepage": "https://github.com/h2o-lerma-con-encanto/H2O-pagina#readme",
+  "bugs": {
+    "url": "https://github.com/h2o-lerma-con-encanto/H2O-pagina/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h2o-lerma-con-encanto/H2O-pagina.git"
+  },
+  "license": "ISC",
+  "author": "DHH-SS",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node src/server.js",
+    "dev": "cross-env NODE_ENV=development nodemon src/server.js",
+    "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.10.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.5.0"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "nodemon": "^3.1.14"
+  }
+}
