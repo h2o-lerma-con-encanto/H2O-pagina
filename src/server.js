@@ -16,7 +16,7 @@ app.use(express.json());
 // Conectar DB
 connectDB();
 
-// Rutas existentes
+// Rutas existentes API
 app.use('/api/auth', require('./routes/authRoutes'));
 
 // Servir archivos estáticos de client/
