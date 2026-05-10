@@ -16,7 +16,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node src/server.js",
-    "dev": "cross-env NODE_ENV=development nodemon src/server.js",
+    "dev": "cross-env NODE_ENV=development nodemon --legacy-watch src/server.js",
     "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles"
   },
   "dependencies": {
@@ -29,6 +29,8 @@
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.5.0",
     "multer": "^2.1.1",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "react-loader-spinner": "^8.0.2",
     "react-router-dom": "^7.15.0"
   },
