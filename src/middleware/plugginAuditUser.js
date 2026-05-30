@@ -19,7 +19,7 @@ module.exports = function auditUser(schema) {
 
   // Para actualizar automáticamente los autores
   // ATENCIÓN: Esto son sólo funciones, la variable ._userContext
-  // ddebe definirse ANTES de usar save, update, etc.
+  // debe definirse ANTES de usar save, update, etc.
 
   // Al crear o guardar .save() y .create()
   schema.pre('save', function (next) {
@@ -60,12 +60,8 @@ module.exports = function auditUser(schema) {
 
     // Aplicamos modificador en la actualización
     // Modificación parcial:
-    if (data.$set) {
-      data.$set.modified_by = userId;
-      // Modificación entera
-    } else {
-      data.modified_by = userId;
-    }
+    data.$set = data.$set || {};
+    data.$set.modified_by = userId;
 
     next();
   });
