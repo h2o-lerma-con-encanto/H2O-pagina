@@ -1,26 +1,17 @@
-/* Modelo para el esquema de nombre */
+/* Modelo para el esquema de Centro */
 const mongoose = require('mongoose');
+const auditUser = require('../middleware/plugginAuditUser');
 
-const nombreSchema = new mongoose.Schema({
-  created_by: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Usuario',
-    required: true 
-  },
-  modified_by: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Usuario',
-    required: false
-  }
+const centroSchema = new mongoose.Schema({
 },
   {
-    collection: 'nombre',
+    collection: 'centros',
     timestamps: {
-      createdAt: 'created_at', // Mongoose usará este nombre para la creación
+      createdAt: 'created_at', // Para la creación en MongoDB
       updatedAt: 'modified_at' // Y este para cada actualización
     }
   }
 )
 
-nombreSchema.plugin(audit);
-module.exports = mongoose.model('Nombre', nombreSchema);
+centroSchema.plugin(auditUser);
+module.exports = mongoose.model('Centro', centroSchema);

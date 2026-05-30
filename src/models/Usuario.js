@@ -1,11 +1,11 @@
-  /* Modelo para el esquema de Nombre */
+  /* Modelo para el esquema de Usuario */
   const mongoose = require('mongoose');
   const auditUser = require('../middleware/plugginAuditUser');
 
-  const nombreSchema = new mongoose.Schema({
+  const usuarioSchema = new mongoose.Schema({
   },
     {
-      collection: 'nombrePLURAL',
+      collection: 'usuarios',
       timestamps: {
         createdAt: 'created_at', // Para la creación en MongoDB
         updatedAt: 'modified_at' // Y este para cada actualización
@@ -13,5 +13,5 @@
     }
   )
 
-  nombreSchema.plugin(auditUser);
-  module.exports = mongoose.model('Nombre', nombreSchema);
+  usuarioSchema.plugin(auditUser);
+  module.exports = mongoose.model('Usuario', usuarioSchema);

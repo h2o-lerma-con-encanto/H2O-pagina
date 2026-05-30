@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const audit = require('../middleware/plugginAudit');
 
 const asistenciaSchema = new mongoose.Schema({
+  
 },
   {
     collection: 'asistencias',
