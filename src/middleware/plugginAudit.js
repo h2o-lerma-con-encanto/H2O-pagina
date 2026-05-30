@@ -19,7 +19,7 @@ module.exports = function audit(schema) {
 
   // Para actualizar automáticamente los autores
   // ATENCIÓN: Esto son sólo funciones, la variable ._userContext
-  // ddebe definirse ANTES de usar save, update, etc.
+  // debe definirse ANTES de usar save, update, etc.
 
   // Al crear o guardar .save() y .create()
   schema.pre('save', function (next) {
@@ -37,16 +37,16 @@ module.exports = function audit(schema) {
 
   // Para las actualizaciones
   const accionesModificacion = [
-        'updateOne', 
-    'updateMany', 
-    'findOneAndUpdate', 
-    'findOneAndReplace', 
+    'updateOne',
+    'updateMany',
+    'findOneAndUpdate',
+    'findOneAndReplace',
     'replaceOne'
-  ];  
-  
+  ];
+
   schema.pre(accionesModificacion, function (next) {
     const data = this.getUpdate();
-    
+
     // En los queries, buscamos el contexto
     const userId = this.options._userContext;
 
@@ -56,14 +56,10 @@ module.exports = function audit(schema) {
 
     // Aplicamos modificador en la actualización
     // Modificación parcial:
-    if (data.$set) {
-      data.$set.modified_by = userId;
-    // Modificación entera
-    } else {
-      data.modified_by = userId;
-    }
-    
+    data.$set = data.$set || {};
+    data.$set.modified_by = userId;
+
     next();
   });
 
-  };
+};
