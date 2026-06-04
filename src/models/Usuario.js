@@ -16,8 +16,8 @@ const usuarioSchema = new mongoose.Schema({
     unique: true
   },
 
-  // usuario: Handle público del usuario (sin espacios ni caracteres especiales)
-  usuario: {
+  // user: Handle público del usuario (sin espacios ni caracteres especiales)
+  user: {
     type: String,
     match: [/^[a-zA-Z0-9|_|\-]+$/,
       'Sólo se aceptan números, letras y guiones.'],
@@ -50,6 +50,7 @@ const usuarioSchema = new mongoose.Schema({
   },
 
   // fecha_nacimiento: Fecha de nacimiento del usuario, DD/MM/AAAA
+  // POR DEFINIR: Si existe algun requerimiento mínimo de edad
   fecha_nacimiento: {
     type: Date,
     required: true
