@@ -123,6 +123,30 @@ const usuarioSchema = new mongoose.Schema({
     unique: true
   },
 
+ // token_verificacion: Token para verificar correo
+  token_verificacion: {
+    type: String,
+    unique: true,
+    select: false
+  },
+
+  // token_verificacion_expira: Fecha de expiración del token para verificar correo (token_verificacion)
+  token_verificacion_expira: {
+    type: Date  
+  },
+
+ // token_reset_password: Token para resetear contraseña (recuperación de cuenta)
+  token_reset_password: {
+    type: String,
+    unique: true,
+    select: false
+  },
+
+  // token_reset_expira: Fecha de expiración del token para resetear contraseña (token_reset_password)
+  token_reset_expira: {
+    type: Date  
+  },
+
   // last_login: Fecha y hora del último inicio de sesión
   last_login: {
     type: Date
