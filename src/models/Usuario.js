@@ -16,8 +16,8 @@ const usuarioSchema = new mongoose.Schema({
     unique: true
   },
 
-  // usuario: Handle público del usuario (sin espacios ni caracteres especiales)
-  usuario: {
+  // user: Handle público del usuario (sin espacios ni caracteres especiales)
+  user: {
     type: String,
     match: [/^[a-zA-Z0-9|_|\-]+$/,
       'Sólo se aceptan números, letras y guiones.'],
@@ -50,6 +50,7 @@ const usuarioSchema = new mongoose.Schema({
   },
 
   // fecha_nacimiento: Fecha de nacimiento del usuario, DD/MM/AAAA
+  // POR DEFINIR: Si existe algun requerimiento mínimo de edad
   fecha_nacimiento: {
     type: Date,
     required: true
@@ -120,6 +121,30 @@ const usuarioSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true
+  },
+
+ // token_verificacion: Token para verificar correo
+  token_verificacion: {
+    type: String,
+    unique: true,
+    select: false
+  },
+
+  // token_verificacion_expira: Fecha de expiración del token para verificar correo (token_verificacion)
+  token_verificacion_expira: {
+    type: Date  
+  },
+
+ // token_reset_password: Token para resetear contraseña (recuperación de cuenta)
+  token_reset_password: {
+    type: String,
+    unique: true,
+    select: false
+  },
+
+  // token_reset_expira: Fecha de expiración del token para resetear contraseña (token_reset_password)
+  token_reset_expira: {
+    type: Date  
   },
 
   // last_login: Fecha y hora del último inicio de sesión

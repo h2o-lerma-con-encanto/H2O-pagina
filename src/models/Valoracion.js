@@ -31,10 +31,22 @@ const valoracionSchema = new mongoose.Schema({
   // categorias: Aspectos positivos del centro seleccionados por el usuario
   categorias: {
     type: [String],
-    enum: ['estacionamiento_disponible','accesibilidad','buena_atencion','limpieza',
-          'buena_organizacion','ubicacion_conveniente','horarios_amplios'],
+    enum: ['estacionamiento_disponible', 'accesibilidad', 'buena_atencion', 'limpieza',
+      'buena_organizacion', 'ubicacion_conveniente', 'horarios_amplios'],
     required: true,
     default: []
+  },
+
+  // foto_url: Foto del centro o experiencia en Cloudinary (ancho máx 800 px, compresión agresiva)
+  foto_url: {
+    type: [String],
+    // Regex — Enlace válido de Cloudinary
+    match: [/^https:\/\/res\.cloudinary\.com\/.+\/.+\/.+\/.+\/.+\/.+\..{1,4}/,
+      'La URL debe ser un link de Cloudinary'],
+    trim: true,
+    minItems: 0,
+    maxItems: 10,
+    unique: true
   },
 
   // mensaje: Comentario escrito del usuario sobre el centro — embebido aquí, NO usa la colección comentarios
@@ -46,7 +58,7 @@ const valoracionSchema = new mongoose.Schema({
   },
 
   // respuesta: Respuesta del centro o admin a esta valoración
-    respuesta: {
+  respuesta: {
     type: String,
     trim: true,
     minlength: 20,
