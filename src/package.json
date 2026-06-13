@@ -1,5 +1,5 @@
 {
-  "name": "pagina_web-h2o_lerma_con_encanto",
+  "name": "backend-pagina_web-h2o_lerma_con_encanto",
   "version": "1.0.0",
   "description": "Configuración para la página web, stack MERN",
   "homepage": "https://github.com/h2o-lerma-con-encanto/H2O-pagina#readme",
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/h2o-lerma-con-encanto/H2O-pagina.git"
   },
-  "license": "ISC",
+  "license": "MIT",
   "author": "DHH-SS",
   "type": "commonjs",
   "main": "server.js",
